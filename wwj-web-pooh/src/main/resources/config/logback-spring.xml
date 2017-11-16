@@ -19,7 +19,7 @@
 	         <onMismatch>DENY</onMismatch>
 	     </filter>
 	     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-	         <FileNamePattern>${LOG_PATH}/info/info.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+	         <FileNamePattern>${LOG_PATH}/info/pooh-info.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
 	         <MaxHistory>30</MaxHistory>
 			 <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">  
 				<maxFileSize>10MB</maxFileSize>
@@ -38,7 +38,7 @@
              <onMismatch>DENY</onMismatch>
          </filter>
          <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-             <FileNamePattern>${LOG_PATH}/error/error.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+             <FileNamePattern>${LOG_PATH}/error/pooh-error.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
              <MaxHistory>30</MaxHistory>
 			 <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">  
 				<maxFileSize>10MB</maxFileSize>
@@ -49,7 +49,7 @@
          </encoder>
      </appender>
      
-     <logger name="com.cn.iboot.*" level="info" />
+     <logger name="com.cn.hx.*" level="info" />
      
     <!-- root --> 
 	<root level="info">
