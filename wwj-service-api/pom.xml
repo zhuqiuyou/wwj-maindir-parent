@@ -1,27 +1,36 @@
-<?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+  
+  <groupId>com.cn.hx</groupId>
+  <artifactId>wwj-service-api</artifactId>
+  <packaging>war</packaging>
+  <name>wwj-service-api</name>
+  <url>http://maven.apache.org</url>
+    
   <parent>
     <groupId>com.cn.hx</groupId>
     <artifactId>wwj-maindir-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
   </parent>
-  <groupId>com.cn.hx</groupId>
-  <artifactId>wwj-service-api</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>wwj-service-api</name>
-  <url>http://maven.apache.org</url>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+
   <dependencies>
-  
 		<dependency>
 	        <groupId>org.springframework.boot</groupId>  
 	        <artifactId>spring-boot-starter-web</artifactId>
+	        <exclusions>
+	        	<exclusion>
+	        		<groupId>org.springframework.boot</groupId>
+	        		<artifactId>spring-boot-starter-tomcat</artifactId>
+	        	</exclusion>
+	        </exclusions>
+	     </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-tomcat</artifactId>
+	        <scope>provided</scope>
 		</dependency>
-		
 		<dependency>
 		    <groupId>com.alibaba</groupId>
 		    <artifactId>dubbo</artifactId>
@@ -32,6 +41,12 @@
 		    <groupId>com.101tec</groupId>
 		    <artifactId>zkclient</artifactId>
 		    <version>0.10</version>
+		    <exclusions>
+		    	<exclusion>
+		    		<groupId>org.slf4j</groupId>
+		    		<artifactId>slf4j-log4j12</artifactId>
+		    	</exclusion>
+		    </exclusions>
 		</dependency>
 		
 		 <dependency>
@@ -51,6 +66,15 @@
             <artifactId>wwj-facade-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
          </dependency>
-         
   </dependencies>
+  
+ 	<build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
