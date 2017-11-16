@@ -1,1 +1,1 @@
-wwj
+wwj-maindir-parent
