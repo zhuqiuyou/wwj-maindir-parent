@@ -68,12 +68,7 @@ public class PageData extends HashMap implements Map{
 	}
 	
 	public String getString(Object key) {
-		Object obj=get(key);
-		if(obj==null){
-			return "";
-		}else{
-			return String.valueOf(obj);
-		}
+		return (String)get(key);
 	}
 	
 	@SuppressWarnings("unchecked")

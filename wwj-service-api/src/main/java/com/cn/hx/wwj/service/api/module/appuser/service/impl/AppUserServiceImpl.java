@@ -53,5 +53,6 @@ public class AppUserServiceImpl extends BaseServiceImpl<AppUser> implements AppU
 	public PageData findByUsername(PageData pd)throws Exception{
 		return (PageData)appUserMapper.findByUsername(pd);
 	}
+
 }
 

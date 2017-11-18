@@ -4,8 +4,6 @@ import java.util.List;
 
 import com.cn.hx.wwj.mybatis.core.dao.BaseMapper;
 import com.cn.hx.wwj.mybatis.core.service.BaseService;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 
 
 
@@ -20,8 +18,8 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 
 	protected abstract BaseMapper<T> getDao();
 
-	public T getById(long id) {
-		return this.getDao().getById(id);
+	public T getById(String id){
+		return this.getDao().findById(id);
 	}
 
 
@@ -33,7 +31,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 	 * @return id .
 	 */
 	public long insert(T entity){
-		return this.getDao().insert(entity);
+		return this.getDao().save(entity);
 	}
 
 	/**
@@ -44,7 +42,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 	 * @return id .
 	 */
 	public void insertBatch(List<T> list){
-		this.getDao().insertBatch(list);
+		this.getDao().batchSave(list);
 	}
 
 	/**
@@ -64,7 +62,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 	 * @return int .
 	 */
 	public void updateBatch(List<T> list){
-		this.getDao().updateBatch(list);
+		this.getDao().batchUpdate(list);
 	}
 
 
@@ -75,8 +73,8 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 	 *            .
 	 * @return
 	 */
-	public long deleteById(long id){
-		return this.getDao().deleteById(id);
+	public long deleteById(String id){
+		return this.getDao().delete(id);
 	}
 	
   	/**
@@ -87,19 +85,4 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
   	public List<T> getList(T t){
   		return this.getDao().listBy(t);
   	}
-  	
-  	/**
-  	 * 分页数据
-  	 * @param startPge
-  	 * @param endPage
-  	 * @param t
-  	 * @return
-  	 */
-  	public PageInfo<T> getPage(int startNum,int pageSize,T t){
-		PageHelper.startPage(startNum, pageSize);
-		List<T> list = getList(t);
-		PageInfo<T> page = new PageInfo<T>(list);
-		return page;
-  	}
-
 }

@@ -15,63 +15,68 @@ public interface BaseMapper<T> {
 	
 
 	/**
-	 * 根据实体对象新增记录.
-	 * 
-	 * @param entity
-	 *            .
-	 * @return id .
-	 */
- 	long insert(T entity);
-
-	/**
-	 * 批量保存对象.
-	 * 
-	 * @param entity
-	 *            .
-	 * @return id .
-	 */
-   void insertBatch(List<T> list);
-
-	/**
-	 * 更新实体对应的记录.
-	 * 
-	 * @param entity
-	 *            .
+	 * 保存对象
+	 * @param t
 	 * @return
+	 * @throws Exception
 	 */
-   long update(T entity);
-
+	public int save(T t);
+	
 	/**
-	 * 批量更新对象.
-	 * 
-	 * @param entity
-	 *            .
-	 * @return int .
-	 */
- 	void updateBatch(List<T> list);
-
-	/**
-	 * 根据ID查找记录.
-	 * 
-	 * @param id
-	 *            .
-	 * @return entity .
-	 */
- 	T getById(long id);
-
-	/**
-	 * 根据ID删除记录.
-	 * 
-	 * @param id
-	 *            .
+	 * 批量更新
+	 * @param list
 	 * @return
+	 * @throws Exception
 	 */
-  	long deleteById(long id);
-  	
-  	/**
-  	 * 查詢列表数据
-  	 * @param t
-  	 * @return
-  	 */
-  	List<T> listBy(T t);
+	public void batchSave(List list );
+	
+	/**
+	 * 修改对象
+	 * @param t
+	 * @return
+	 * @throws Exception
+	 */
+	public int update(T t);
+
+	/**
+	 * 批量更新
+	 * @param list
+	 * @return
+	 * @throws Exception
+	 */
+	public void batchUpdate(List list );
+	
+	/**
+	 * 批量删除
+	 * @param list
+	 * @return
+	 * @throws Exception
+	 */
+	public void batchDelete(List list);
+	
+	/**
+	 * 删除对象 
+	 * @param string
+	 * @return
+	 * @throws Exception
+	 */
+	public int delete(String id);
+	
+	
+	/**
+	 * 查找列表对象
+	 * @param t
+	 * @return
+	 * @throws Exception
+	 */
+	public List<T> listBy(T t);
+	 
+	/**
+	 * 查找对象
+	 * @param string
+	 * @return
+	 * @throws Exception
+	 */
+	public T findById(String id);
+
 }

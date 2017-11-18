@@ -21,4 +21,5 @@ public class ServiceApiApplication extends SpringBootServletInitializer {
     public static void main(String[] args) throws Exception {
         SpringApplication.run(ServiceApiApplication.class, args);
     }
+    
 }

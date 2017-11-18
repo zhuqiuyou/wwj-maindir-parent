@@ -1,12 +1,10 @@
 package com.cn.hx.wwj.common.web.util;
 
 import org.codehaus.jackson.map.util.JSONPObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map; 
+import java.util.Map;
 
 /** 接口参数校验
  * @author:	fh qq313596790[青苔]
@@ -14,7 +12,7 @@ import java.util.Map;
  */
 public class AppUtil  {
 	
-	protected static Logger logger = LoggerFactory.getLogger(AppUtil.class);
+	protected static Logger logger = Logger.getLogger(AppUtil.class);
 	
 	/**检查参数是否完整
 	 * @param method

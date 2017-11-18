@@ -154,7 +154,7 @@ public class Tools {
 	 * @param content  写入的内容
 	 */
 	public static void writeFile(String fileP,String content){
-		String filePath = String.valueOf(Thread.currentThread().getContextClassLoader().getResource(""))+"../../";	//项目路径
+		String filePath = String.valueOf(Thread.currentThread().getContextClassLoader().getResource(""));	//项目路径
 		filePath = (filePath.trim() + fileP.trim()).substring(6).trim();
 		if(filePath.indexOf(":") != 1){
 			filePath = File.separator + filePath;
@@ -238,7 +238,7 @@ public class Tools {
 	 */
 	public static String readTxtFile(String fileP) {
 		try {
-			String filePath = String.valueOf(Thread.currentThread().getContextClassLoader().getResource(""))+"../../";	//项目路径
+			String filePath = String.valueOf(Thread.currentThread().getContextClassLoader().getResource(""));	//项目路径
 			filePath = filePath.replaceAll("file:/", "");
 			filePath = filePath.replaceAll("%20", " ");
 			filePath = filePath.trim() + fileP.trim();
@@ -273,7 +273,7 @@ public class Tools {
 	public static String readTxtFileAll(String fileP, String encoding) {
 		StringBuffer fileContent = new StringBuffer(); 
 		try {
-			String filePath = String.valueOf(Thread.currentThread().getContextClassLoader().getResource(""))+"../../";	//项目路径
+			String filePath = String.valueOf(Thread.currentThread().getContextClassLoader().getResource(""));	//项目路径
 			filePath = filePath.replaceAll("file:/", "");
 			filePath = filePath.replaceAll("%20", " ");
 			filePath = filePath.trim() + fileP.trim();

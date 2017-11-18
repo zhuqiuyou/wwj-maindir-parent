@@ -2,7 +2,6 @@ package com.cn.hx.wwj.mybatis.core.service;
 
 import java.util.List;
 
-import com.github.pagehelper.PageInfo;
 
 /**
  * 基类Service接口
@@ -21,9 +20,7 @@ public interface BaseService<T> {
 	 *            .
 	 * @return entity .
 	 */
-	T getById(long id);
-
-	
+	T getById(String id);
 
 
 	/**
@@ -70,7 +67,7 @@ public interface BaseService<T> {
 	 *            .
 	 * @return
 	 */
-	long deleteById(long id);
+	long deleteById(String  id);
 	
   	/**
   	 * 查詢列表数据
@@ -78,14 +75,4 @@ public interface BaseService<T> {
   	 * @return
   	 */
   	List<T> getList(T t);
-  	
-  	/**
-  	 * 分页数据
-  	 * @param startPge
-  	 * @param endPage
-  	 * @param t
-  	 * @return
-  	 */
-  	PageInfo<T> getPage(int startNum,int pageSize,T t);
-	
 }
