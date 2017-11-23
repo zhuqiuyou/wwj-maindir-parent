@@ -15,7 +15,7 @@ import com.cn.hx.wwj.web.pooh.module.service.fhdb.brdb.impl.BRdbService;
 import com.cn.hx.wwj.web.pooh.module.service.fhdb.timingbackup.impl.TimingBackUpService;
 import com.cn.hx.wwj.common.web.util.DbFH;
 import com.cn.hx.wwj.common.web.util.FileUtil;
-import com.cn.hx.wwj.common.web.util.PageData;
+import com.cn.hx.wwj.common.page.core.PageData;
 import com.cn.hx.wwj.common.web.util.Tools;
 
 /** quartz 定时任务调度 数据库自动备份工作域

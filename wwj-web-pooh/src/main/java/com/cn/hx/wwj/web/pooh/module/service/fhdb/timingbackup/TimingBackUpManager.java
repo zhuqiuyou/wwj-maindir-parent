@@ -1,8 +1,8 @@
 package com.cn.hx.wwj.web.pooh.module.service.fhdb.timingbackup;
 
 import java.util.List;
-import com.cn.hx.wwj.common.web.entity.Page;
-import com.cn.hx.wwj.common.web.util.PageData;
+import com.cn.hx.wwj.common.page.core.Page;
+import com.cn.hx.wwj.common.page.core.PageData;
 
 /** 
  * 说明： 定时备份接口

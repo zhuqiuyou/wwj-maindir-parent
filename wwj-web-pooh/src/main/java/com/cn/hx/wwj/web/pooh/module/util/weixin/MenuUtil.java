@@ -16,7 +16,7 @@ import com.cn.hx.wwj.web.pooh.module.entity.weixin.CommonButton;
 import com.cn.hx.wwj.web.pooh.module.entity.weixin.ComplexButton;
 import com.cn.hx.wwj.web.pooh.module.entity.weixin.Menu;
 import com.cn.hx.wwj.web.pooh.module.entity.weixin.ViewButton;
-import com.cn.hx.wwj.common.web.util.PageData;
+import com.cn.hx.wwj.common.page.core.PageData;
 
 /**
  * 

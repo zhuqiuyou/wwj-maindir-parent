@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cn.hx.wwj.common.web.util.AppUtil;
 import com.cn.hx.wwj.common.web.util.Const;
-import com.cn.hx.wwj.common.web.util.PageData;
+import com.cn.hx.wwj.common.page.core.PageData;
 import com.cn.hx.wwj.common.web.util.Tools;
 import com.cn.hx.wwj.web.pooh.module.controller.base.BaseController;
 import com.cn.hx.wwj.web.pooh.module.service.system.fhlog.FHlogManager;

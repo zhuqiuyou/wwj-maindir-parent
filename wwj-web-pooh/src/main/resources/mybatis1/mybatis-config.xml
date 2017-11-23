@@ -20,9 +20,9 @@
 		<!-- 这里添加生成的实体类 -->
 		
 		
-		<typeAlias type="com.cn.hx.wwj.common.web.util.PageData" alias="pd"/>
+		<typeAlias type="com.cn.hx.wwj.common.page.core.PageData" alias="pd"/>
 		<!-- 分页 -->
-		<typeAlias type="com.cn.hx.wwj.common.web.entity.Page" alias="Page"/>
+		<typeAlias type="com.cn.hx.wwj.common.page.core.Page" alias="Page"/>
 	</typeAliases>
 	
 	<plugins>

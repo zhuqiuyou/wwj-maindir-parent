@@ -2,8 +2,8 @@ package com.cn.hx.wwj.facade.api.appuser.service;
 
 import java.util.List;
 
-import com.cn.hx.wwj.common.web.entity.Page;
-import com.cn.hx.wwj.common.web.util.PageData;
+import com.cn.hx.wwj.common.page.core.Page;
+import com.cn.hx.wwj.common.page.core.PageData;
 
 /** 会员接口类
  * @author fh313596790qq(青苔)

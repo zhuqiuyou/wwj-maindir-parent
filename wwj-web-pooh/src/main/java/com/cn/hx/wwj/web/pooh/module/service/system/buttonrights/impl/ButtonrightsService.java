@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.cn.hx.wwj.web.pooh.module.dao.DaoSupport;
-import com.cn.hx.wwj.common.web.util.PageData;
+import com.cn.hx.wwj.common.page.core.PageData;
 import com.cn.hx.wwj.web.pooh.module.service.system.buttonrights.ButtonrightsManager;
 
 /** 

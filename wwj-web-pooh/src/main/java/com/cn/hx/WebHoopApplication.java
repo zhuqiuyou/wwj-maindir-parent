@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 //@EnableTransactionManagement // 启注解事务管理，等同于xml配置方式的 <tx:annotation-driven />
 @ImportResource("classpath:config/spring-dataSource.xml")

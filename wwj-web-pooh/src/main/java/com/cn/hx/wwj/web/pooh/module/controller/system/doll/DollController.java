@@ -11,6 +11,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
@@ -19,13 +20,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cn.hx.wwj.common.web.entity.Page;
+import com.cn.hx.wwj.common.page.core.Page;
 import com.cn.hx.wwj.common.web.util.AppUtil;
-import com.cn.hx.wwj.common.web.util.PageData;
+import com.cn.hx.wwj.common.page.core.PageData;
 import com.cn.hx.wwj.web.pooh.module.controller.base.BaseController;
 import com.cn.hx.wwj.web.pooh.module.service.system.doll.DollManager;
 import com.cn.hx.wwj.web.pooh.module.util.Jurisdiction;
 import com.cn.hx.wwj.web.pooh.module.util.ObjectExcelView;
+
+import com.cn.hx.wwj.facade.api.appuser.service.AppUserFacade;
 
 /** 
  * 说明：娃娃机处理类
@@ -38,6 +41,10 @@ public class DollController extends BaseController {
 	String menuUrl = "doll/list.do"; //菜单地址(权限用)
 	@Resource(name="dollService")
 	private DollManager dollService;
+	
+	
+	@Autowired
+	private AppUserFacade appUserFacade;
 	
 	/**保存
 	 * @param
@@ -111,6 +118,9 @@ public class DollController extends BaseController {
 		mv.addObject("varList", varList);
 		mv.addObject("pd", pd);
 //		mv.addObject("QX",Jurisdiction.getHC());	//按钮权限
+		
+		PageData p1=appUserFacade.findByUsername(null);
+		System.out.println(p1);
 		return mv;
 	}
 	

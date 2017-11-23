@@ -3,8 +3,8 @@ package com.cn.hx.wwj.service.api.module.appuser.service;
 
 import java.util.List;
 
-import com.cn.hx.wwj.common.web.entity.Page;
-import com.cn.hx.wwj.common.web.util.PageData;
+import com.cn.hx.wwj.common.page.core.Page;
+import com.cn.hx.wwj.common.page.core.PageData;
 import com.cn.hx.wwj.facade.api.appuser.entity.AppUser;
 import com.cn.hx.wwj.mybatis.core.service.BaseService;
 

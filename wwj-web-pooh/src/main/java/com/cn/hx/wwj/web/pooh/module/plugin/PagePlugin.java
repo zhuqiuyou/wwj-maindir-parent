@@ -33,7 +33,7 @@ import org.apache.ibatis.type.TypeHandlerRegistry;
 
 import com.cn.hx.wwj.common.web.util.ReflectHelper;
 import com.cn.hx.wwj.common.web.util.Tools;
-import com.cn.hx.wwj.common.web.entity.Page;
+import com.cn.hx.wwj.common.page.core.Page;
 
 /**
  * 

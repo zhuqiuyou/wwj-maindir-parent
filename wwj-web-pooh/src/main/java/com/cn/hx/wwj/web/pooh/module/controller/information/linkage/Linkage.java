@@ -16,7 +16,7 @@ import com.cn.hx.wwj.web.pooh.module.controller.base.BaseController;
 import com.cn.hx.wwj.web.pooh.module.entity.system.Dictionaries;
 import com.cn.hx.wwj.web.pooh.module.service.system.dictionaries.DictionariesManager;
 import com.cn.hx.wwj.common.web.util.AppUtil;
-import com.cn.hx.wwj.common.web.util.PageData;
+import com.cn.hx.wwj.common.page.core.PageData;
 import com.cn.hx.wwj.common.web.util.Tools;
 
 /**

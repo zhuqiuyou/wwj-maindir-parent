@@ -19,7 +19,7 @@
   <dependencies>
          <dependency>
             <groupId>com.cn.hx</groupId>
-            <artifactId>wwj-common-web</artifactId>
+            <artifactId>wwj-common-page</artifactId>
             <version>0.0.1-SNAPSHOT</version>
          </dependency>
   </dependencies>

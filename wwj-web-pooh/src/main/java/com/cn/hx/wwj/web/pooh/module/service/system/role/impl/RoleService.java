@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.cn.hx.wwj.web.pooh.module.dao.DaoSupport;
 import com.cn.hx.wwj.web.pooh.module.entity.system.Role;
 import com.cn.hx.wwj.web.pooh.module.service.system.role.RoleManager;
-import com.cn.hx.wwj.common.web.util.PageData;
+import com.cn.hx.wwj.common.page.core.PageData;
 
 /**	角色
  * @author FHadmin QQ313596790

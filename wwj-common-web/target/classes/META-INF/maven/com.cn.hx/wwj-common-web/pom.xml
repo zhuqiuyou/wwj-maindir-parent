@@ -63,9 +63,14 @@
 	        	</exclusion>
 	        </exclusions>
 		</dependency>
-				<dependency>
+		<dependency>
             <groupId>com.cn.hx</groupId>
             <artifactId>wwj-common-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cn.hx</groupId>
+            <artifactId>wwj-common-page</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 		<dependency>

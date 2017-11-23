@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cn.hx.wwj.common.web.util.AppUtil;
-import com.cn.hx.wwj.common.web.util.PageData;
+import com.cn.hx.wwj.common.page.core.PageData;
 import com.cn.hx.wwj.common.web.util.RightsHelper;
 import com.cn.hx.wwj.common.web.util.Tools;
 import com.cn.hx.wwj.web.pooh.module.controller.base.BaseController;

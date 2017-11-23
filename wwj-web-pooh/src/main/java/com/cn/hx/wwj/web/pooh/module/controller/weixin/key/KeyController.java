@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cn.hx.wwj.web.pooh.module.controller.base.BaseController;
-import com.cn.hx.wwj.common.web.entity.Page;
-import com.cn.hx.wwj.common.web.util.PageData;
+import com.cn.hx.wwj.common.page.core.Page;
+import com.cn.hx.wwj.common.page.core.PageData;
 import com.cn.hx.wwj.web.pooh.module.util.Jurisdiction;
 import com.cn.hx.wwj.common.web.util.Tools;
 import com.cn.hx.wwj.web.pooh.module.service.weixin.key.KeyManager;

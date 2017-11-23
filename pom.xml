@@ -58,5 +58,8 @@
 		<module>wwj-facade-api</module>
 		<module>wwj-service-api</module>
 		<module>wwj-web-pooh</module>
+    <module>www-page-common</module>
+    <module>wwj-page-common</module>
+    <module>wwj-common-page</module>
 	</modules>
 </project>

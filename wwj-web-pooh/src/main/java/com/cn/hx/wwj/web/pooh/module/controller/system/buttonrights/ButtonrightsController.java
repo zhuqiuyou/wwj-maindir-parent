@@ -20,7 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.cn.hx.wwj.web.pooh.module.controller.base.BaseController;
 import com.cn.hx.wwj.web.pooh.module.entity.system.Role;
 import com.cn.hx.wwj.common.web.util.AppUtil;
-import com.cn.hx.wwj.common.web.util.PageData;
+import com.cn.hx.wwj.common.page.core.PageData;
 import com.cn.hx.wwj.web.pooh.module.util.Jurisdiction;
 import com.cn.hx.wwj.common.web.util.Tools;
 import com.cn.hx.wwj.web.pooh.module.service.system.buttonrights.ButtonrightsManager;

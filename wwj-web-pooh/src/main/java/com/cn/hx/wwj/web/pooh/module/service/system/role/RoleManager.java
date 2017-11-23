@@ -3,7 +3,7 @@ package com.cn.hx.wwj.web.pooh.module.service.system.role;
 import java.util.List;
 
 import com.cn.hx.wwj.web.pooh.module.entity.system.Role;
-import com.cn.hx.wwj.common.web.util.PageData;
+import com.cn.hx.wwj.common.page.core.PageData;
 
 /**	角色接口类
  * @author FHadmin QQ313596790

@@ -1,6 +1,6 @@
 package com.cn.hx.wwj.web.pooh.module.entity.system;
 
-import com.cn.hx.wwj.common.web.entity.Page;
+import com.cn.hx.wwj.common.page.core.Page;
 
 /**
  * 

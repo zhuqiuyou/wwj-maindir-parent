@@ -3,7 +3,7 @@ package com.cn.hx.wwj.web.pooh.module.controller.gateway;
 import com.cn.hx.wwj.web.pooh.module.controller.base.BaseController;
 import com.cn.hx.wwj.web.pooh.module.service.system.appuser.AppuserManager;
 import com.cn.hx.wwj.common.web.util.AppUtil;
-import com.cn.hx.wwj.common.web.util.PageData;
+import com.cn.hx.wwj.common.page.core.PageData;
 import com.cn.hx.wwj.common.web.util.Tools;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.crypto.hash.SimpleHash;

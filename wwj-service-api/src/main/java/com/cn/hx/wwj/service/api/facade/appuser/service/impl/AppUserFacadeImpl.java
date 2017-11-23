@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
 
-import com.cn.hx.wwj.common.web.entity.Page;
-import com.cn.hx.wwj.common.web.util.PageData;
+import com.cn.hx.wwj.common.page.core.Page;
+import com.cn.hx.wwj.common.page.core.PageData;
 import com.cn.hx.wwj.facade.api.appuser.service.AppUserFacade;
 import com.cn.hx.wwj.service.api.module.appuser.service.AppUserService;
 

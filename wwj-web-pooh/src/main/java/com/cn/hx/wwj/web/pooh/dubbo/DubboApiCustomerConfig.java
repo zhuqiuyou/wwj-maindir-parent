@@ -27,6 +27,7 @@ public class DubboApiCustomerConfig {
 	public RegistryConfig registry() {
 		RegistryConfig registryConfig = new RegistryConfig();
 		registryConfig.setAddress(dubboApiCustomerProperies.getRegistryAddress());
+		registryConfig.setCheck(false);
 		return registryConfig;
 	}
 	

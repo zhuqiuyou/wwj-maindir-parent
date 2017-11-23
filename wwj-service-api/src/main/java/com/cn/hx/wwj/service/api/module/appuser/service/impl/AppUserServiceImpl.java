@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cn.hx.wwj.common.web.entity.Page;
-import com.cn.hx.wwj.common.web.util.PageData;
+import com.cn.hx.wwj.common.page.core.Page;
+import com.cn.hx.wwj.common.page.core.PageData;
 import com.cn.hx.wwj.facade.api.appuser.entity.AppUser;
 import com.cn.hx.wwj.mybatis.core.dao.BaseMapper;
 import com.cn.hx.wwj.mybatis.core.service.impl.BaseServiceImpl;

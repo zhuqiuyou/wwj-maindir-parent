@@ -3,7 +3,7 @@ package com.cn.hx.wwj.web.pooh.module.service.system.menu;
 import java.util.List;
 
 import com.cn.hx.wwj.web.pooh.module.entity.system.Menu;
-import com.cn.hx.wwj.common.web.util.PageData;
+import com.cn.hx.wwj.common.page.core.PageData;
 
 
 /**说明：MenuService 菜单处理接口

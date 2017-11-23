@@ -23,7 +23,7 @@ import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
 import com.cn.hx.wwj.common.web.util.Const;
-import com.cn.hx.wwj.common.web.util.PageData;
+import com.cn.hx.wwj.common.page.core.PageData;
 import com.cn.hx.wwj.common.web.util.Tools;   
 
 /** 

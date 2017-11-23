@@ -22,7 +22,7 @@ import com.cn.hx.wwj.common.web.util.AppUtil;
 import com.cn.hx.wwj.common.web.util.DbFH;
 import com.cn.hx.wwj.web.pooh.module.util.Jurisdiction;
 import com.cn.hx.wwj.web.pooh.module.util.ObjectExcelView;
-import com.cn.hx.wwj.common.web.util.PageData;
+import com.cn.hx.wwj.common.page.core.PageData;
 
 /** 
  * 说明：SQL编辑器

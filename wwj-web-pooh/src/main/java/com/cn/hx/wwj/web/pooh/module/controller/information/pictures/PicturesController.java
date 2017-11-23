@@ -22,14 +22,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cn.hx.wwj.common.web.entity.Page;
+import com.cn.hx.wwj.common.page.core.Page;
 import com.cn.hx.wwj.common.web.util.AppUtil;
 import com.cn.hx.wwj.common.web.util.Const;
 import com.cn.hx.wwj.common.web.util.DateUtil;
 import com.cn.hx.wwj.common.web.util.DelAllFile;
 import com.cn.hx.wwj.common.web.util.FileUpload;
 import com.cn.hx.wwj.common.web.util.GetWeb;
-import com.cn.hx.wwj.common.web.util.PageData;
+import com.cn.hx.wwj.common.page.core.PageData;
 import com.cn.hx.wwj.common.web.util.PathUtil;
 import com.cn.hx.wwj.common.web.util.Tools;
 import com.cn.hx.wwj.web.pooh.module.controller.base.BaseController;

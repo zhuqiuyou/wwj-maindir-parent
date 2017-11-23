@@ -2,9 +2,9 @@ package com.cn.hx.wwj.web.pooh.module.service.system.dictionaries;
 
 import java.util.List;
 
-import com.cn.hx.wwj.common.web.entity.Page;
+import com.cn.hx.wwj.common.page.core.Page;
 import com.cn.hx.wwj.web.pooh.module.entity.system.Dictionaries;
-import com.cn.hx.wwj.common.web.util.PageData;
+import com.cn.hx.wwj.common.page.core.PageData;
 
 /** 
  * 说明： 数据字典接口类
