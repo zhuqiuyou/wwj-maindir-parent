@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.hx.wwj.service.api.module.mchnt.mapper.MchntInfMapper">
+	
+	<!--表名 -->
+	<sql id="tableName">
+		TB_MCHNT_INF
+	</sql>
+	
+	<!-- 字段 -->
+	<sql id="Field">
+		MCHNT_ID,
+		MCHNT_NAME,
+		APP_NAME,
+		APP_NO,
+		MCHNT_STATE,
+		DATA_STAT,
+		CREATE_USER,
+		CREATE_DATE,
+		UPDATE_USER,
+		UPDATE_DATE,
+		LOCK_VERSION
+	</sql>
+	
+	<!-- 字段值 -->
+	<sql id="FieldValue">
+		${MCHNT_ID}
+		#{MCHNT_NAME,jdbcType=VARCHAR},	
+		#{APP_NAME,jdbcType=VARCHAR},	
+		#{APP_NO,jdbcType=VARCHAR},	
+		#{MCHNT_STATE,jdbcType=VARCHAR},
+		#{DATA_STAT,jdbcType=VARCHAR},
+		#{CREATE_USER,jdbcType=VARCHAR},
+		now(),
+		#{UPDATE_USER,jdbcType=VARCHAR},
+		now(),
+		0
+	</sql>
+	
+	<!-- 新增-->
+	<insert id="save" parameterType="pd">
+		insert into 
+	<include refid="tableName"></include>
+		(
+			MCHNT_NAME,
+			APP_NAME,
+			APP_NO,
+			MCHNT_STATE,
+			DATA_STAT,
+			CREATE_USER,
+			CREATE_DATE,
+			UPDATE_USER,
+			UPDATE_DATE,
+			LOCK_VERSION
+		) values (
+			#{MCHNT_NAME,jdbcType=VARCHAR},	
+			#{APP_NAME,jdbcType=VARCHAR},	
+			#{APP_NO,jdbcType=VARCHAR},	
+			#{MCHNT_STATE,jdbcType=VARCHAR},
+			#{DATA_STAT,jdbcType=VARCHAR},
+			#{CREATE_USER,jdbcType=VARCHAR},
+			now(),
+			#{UPDATE_USER,jdbcType=VARCHAR},
+			now(),
+			0
+		)
+	</insert>
+	
+	<!-- 删除-->
+	<update id="delete" parameterType="pd">
+		UPDATE 
+			<include refid="tableName"></include>
+		SET DATA_STAT=1
+		
+		WHERE 
+			MCHNT_ID = #{MCHNT_ID}
+	</update>
+	
+	<!-- 修改 -->
+	<update id="edit" parameterType="pd">
+		UPDATE
+		<include refid="tableName"></include>
+		SET 
+			MCHNT_NAME=#{MCHNT_NAME,jdbcType=VARCHAR},
+			APP_NAME=#{APP_NAME,jdbcType=VARCHAR},
+			APP_NO=#{APP_NO,jdbcType=VARCHAR},
+			<if test="MCHNT_STATE != null and pd.MCHNT_STATE != ''">
+				MCHNT_STATE=#{MCHNT_STATE,jdbcType=VARCHAR},
+			</if>
+			UPDATE_USER=#{UPDATE_USER,jdbcType=VARCHAR},
+			UPDATE_DATE=now(),
+			LOCK_VERSION=LOCK_VERSION+1
+		WHERE 
+		MCHNT_ID = #{MCHNT_ID}
+	</update>
+	
+	<!-- 通过ID获取数据 -->
+	<select id="findById" parameterType="pd" resultType="pd">
+		SELECT 
+		<include refid="Field"></include>
+		FROM 
+		<include refid="tableName"></include>
+		WHERE 
+			MCHNT_ID = #{MCHNT_ID}
+	</select>
+	
+	<!-- 列表 -->
+	<select id="listPage" parameterType="page" resultType="pd">
+		SELECT
+		<include refid="Field"></include>
+		FROM 
+		<include refid="tableName"></include>
+		WHERE DATA_STAT=0
+		<if test="pd.keywords!= null and pd.keywords != ''"><!-- 关键词检索 -->
+			AND MCHNT_NAME LIKE CONCAT(CONCAT('%', #{pd.keywords}),'%')
+		</if>
+	</select>
+	
+	<!-- 列表(全部) -->
+	<select id="listAllPage" parameterType="pd" resultType="pd">
+		SELECT
+		<include refid="Field"></include>
+		FROM 
+		<include refid="tableName"></include>
+		WHERE DATA_STAT=0
+	</select>
+	
+	<!-- 批量删除 -->
+	<delete id="deleteAll" parameterType="String">
+		UPDATE 
+			<include refid="tableName"></include>
+		SET DATA_STAT=1
+		WHERE 
+			MCHNT_ID in
+		<foreach item="item" index="index" collection="array" open="(" separator="," close=")">
+                 #{item}
+		</foreach>
+	</delete>
+
+	<!--根据娃娃机sn号获取娃娃机对象-->
+	<select id="getMchntByAppNo" parameterType="String" resultType="com.fh.entity.system.MchntInf">
+		SELECT
+		<include refid="Field"/>
+		FROM
+		<include refid="tableName"/>
+		WHERE 
+		 APP_NO = #{APP_NO} AND  DATA_STAT=0
+	</select>
+
+
+
+</mapper>

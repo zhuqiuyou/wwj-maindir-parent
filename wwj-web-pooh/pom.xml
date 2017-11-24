@@ -329,7 +329,7 @@
 		</dependency>
         
         
-         <!-- 易宝支付以下五个依赖-->
+         <!-- 自定义jar依赖-->
          <dependency>
             <groupId>com.cn.hx</groupId>
             <artifactId>wwj-common-core</artifactId>
