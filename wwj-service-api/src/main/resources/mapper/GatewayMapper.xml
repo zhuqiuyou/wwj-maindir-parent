@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="GatewayMapper">
+<mapper namespace="com.cn.hx.wwj.service.api.module.gateway.mapper.GatewayMapper">
 	
 	<!--表名 -->
 	<sql id="tableName">
@@ -40,7 +40,7 @@
 	</sql>
 	
 	<!-- 新增-->
-	<insert id="save" parameterType="pd">
+	<insert id="save" parameterType="PageData">
 		insert into 
 	<include refid="tableName"></include>
 		(
@@ -51,7 +51,7 @@
 	</insert>
 	
 	<!-- 删除-->
-	<delete id="delete" parameterType="pd">
+	<delete id="delete" parameterType="PageData">
 		delete from
 		<include refid="tableName"></include>
 		where 
@@ -59,7 +59,7 @@
 	</delete>
 	
 	<!-- 修改 -->
-	<update id="edit" parameterType="pd">
+	<update id="edit" parameterType="PageData">
 		update
 		<include refid="tableName"></include>
 		set 
@@ -69,7 +69,7 @@
 	</update>
 	
 	<!-- 通过ID获取数据 -->
-	<select id="findById" parameterType="pd" resultType="pd">
+	<select id="findById" parameterType="PageData" resultType="PageData">
 		select 
 		<include refid="Field"></include>
 		from 
@@ -79,7 +79,7 @@
 	</select>
 	
 	<!-- 列表 -->
-	<select id="listPage" parameterType="page" resultType="pd">
+	<select id="listPage" parameterType="page" resultType="PageData">
 		select
 		<include refid="Field"></include>
 		from 
@@ -98,7 +98,7 @@
 	</select>
 	
 	<!-- 列表(全部) -->
-	<select id="listAllPage" parameterType="pd" resultType="pd">
+	<select id="listAllPage" parameterType="PageData" resultType="PageData">
 		select
 		<include refid="Field"></include>
 		from 

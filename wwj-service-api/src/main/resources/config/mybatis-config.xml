@@ -8,6 +8,8 @@
 
 	<typeAliases>
 		<typeAlias type="com.cn.hx.wwj.facade.api.appuser.entity.AppUser" alias="AppUser"/>
+		<typeAlias type="com.cn.hx.wwj.facade.api.doll.entity.Doll" alias="Doll"/>
+		<typeAlias type="com.cn.hx.wwj.facade.api.mchnt.entity.MchntInf" alias="MchntInf"/>
 		
 		<typeAlias type="com.cn.hx.wwj.common.page.core.PageData" alias="PageData"/>
 		<!-- 分页 -->

@@ -38,7 +38,7 @@
 	</sql>
 	
 	<!-- 新增-->
-	<insert id="save" parameterType="pd">
+	<insert id="save" parameterType="PageData">
 		insert into 
 	<include refid="tableName"></include>
 		(
@@ -67,7 +67,7 @@
 	</insert>
 	
 	<!-- 删除-->
-	<update id="delete" parameterType="pd">
+	<update id="delete" parameterType="PageData">
 		UPDATE 
 			<include refid="tableName"></include>
 		SET DATA_STAT=1
@@ -77,7 +77,7 @@
 	</update>
 	
 	<!-- 修改 -->
-	<update id="edit" parameterType="pd">
+	<update id="edit" parameterType="PageData">
 		UPDATE
 		<include refid="tableName"></include>
 		SET 
@@ -95,7 +95,7 @@
 	</update>
 	
 	<!-- 通过ID获取数据 -->
-	<select id="findById" parameterType="pd" resultType="pd">
+	<select id="findById" parameterType="PageData" resultType="PageData">
 		SELECT 
 		<include refid="Field"></include>
 		FROM 
@@ -105,7 +105,7 @@
 	</select>
 	
 	<!-- 列表 -->
-	<select id="listPage" parameterType="page" resultType="pd">
+	<select id="listPage" parameterType="page" resultType="PageData">
 		SELECT
 		<include refid="Field"></include>
 		FROM 
@@ -117,7 +117,7 @@
 	</select>
 	
 	<!-- 列表(全部) -->
-	<select id="listAllPage" parameterType="pd" resultType="pd">
+	<select id="listAllPage" parameterType="PageData" resultType="PageData">
 		SELECT
 		<include refid="Field"></include>
 		FROM 
@@ -138,7 +138,7 @@
 	</delete>
 
 	<!--根据娃娃机sn号获取娃娃机对象-->
-	<select id="getMchntByAppNo" parameterType="String" resultType="com.fh.entity.system.MchntInf">
+	<select id="getMchntByAppNo" parameterType="String" resultType="com.cn.hx.wwj.facade.api.mchnt.entity.MchntInf">
 		SELECT
 		<include refid="Field"/>
 		FROM

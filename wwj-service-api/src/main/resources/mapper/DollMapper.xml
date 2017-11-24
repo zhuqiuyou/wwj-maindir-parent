@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.hx.wwj.service.api.module.doll.mapper.DollMapper">
+
+    <!--表名 -->
+    <sql id="tableName">
+		SYS_APP_DOLL
+	</sql>
+
+    <sql id="gatewayTableName">
+        TBL_GATEWAY_SESSION
+    </sql>
+
+    <!-- 字段 -->
+    <sql id="Field">
+		DOLL_SN,	
+		DOLL_NAME,	
+		ROOM_ID,	
+		DOLL_STATE,	
+		DOLL_ID,
+		DOLL_GOLD,
+		DOLL_URL
+	</sql>
+
+    <!-- 字段值 -->
+    <sql id="FieldValue">
+		#{DOLL_SN},	
+		#{DOLL_NAME},	
+		#{ROOM_ID},	
+		#{DOLL_STATE},	
+		#{DOLL_ID},
+		#{DOLL_GOLD},
+		#{DOLL_URL}
+	</sql>
+
+    <!-- 新增-->
+    <insert id="save" parameterType="PageData">
+        insert into
+        <include refid="tableName"></include>
+        (
+        <include refid="Field"></include>
+        ) values (
+        <include refid="FieldValue"></include>
+        )
+    </insert>
+
+    <!-- 删除-->
+    <delete id="delete" parameterType="PageData">
+        delete from
+        <include refid="tableName"></include>
+        where
+        DOLL_ID = #{DOLL_ID}
+    </delete>
+
+    <!-- 修改 -->
+    <update id="edit" parameterType="PageData">
+        update
+        <include refid="tableName"></include>
+        set
+        DOLL_NAME = #{DOLL_NAME},
+        DOLL_GOLD = #{DOLL_GOLD},
+        DOLL_URL = #{DOLL_URL}
+        where
+        DOLL_ID = #{DOLL_ID}
+    </update>
+
+    <!-- 通过ID获取数据 -->
+    <select id="findById" parameterType="PageData" resultType="PageData">
+        select
+        <include refid="Field"></include>
+        from
+        <include refid="tableName"></include>
+        where
+        DOLL_ID = #{DOLL_ID}
+    </select>
+
+    <!-- 列表 -->
+    <select id="dolllistPage" parameterType="page" resultType="PageData">
+        select
+        <include refid="Field"></include>
+        from
+        <include refid="tableName"></include>
+        where 1=1
+        <if test="pd.keywords!= null and pd.keywords != ''"><!-- 关键词检索 -->
+            and
+            DOLL_NAME LIKE CONCAT(CONCAT('%', #{pd.keywords}),'%')
+        </if>
+        <if test="pd.DOLL_STATE != null and pd.DOLL_STATE != ''"><!-- 状态检索 -->
+            and DOLL_STATE = #{pd.DOLL_STATE}
+        </if>
+
+    </select>
+
+    <!-- 列表(全部) -->
+    <select id="listAlllistPage" parameterType="PageData" resultType="PageData">
+        select
+        <include refid="Field"></include>
+        from
+        <include refid="tableName"></include>
+    </select>
+
+    <!-- 批量删除 -->
+    <delete id="deleteAll" parameterType="String">
+        delete from
+        <include refid="tableName"></include>
+        where
+        DOLL_ID in
+        <foreach item="item" index="index" collection="array" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <!--根据娃娃机sn号获取娃娃机对象-->
+    <select id="getDollBySN" parameterType="String" resultType="com.cn.hx.wwj.facade.api.doll.entity.Doll">
+        SELECT
+        <include refid="Field"/>
+        FROM
+        <include refid="tableName"/>
+        WHERE
+        DOLL_SN = #{DOLL_SN}
+
+    </select>
+
+    <!--根据娃娃机状态码获取娃娃机空闲中对象-->
+    <select id="getDollByState" parameterType="String" resultType="com.cn.hx.wwj.facade.api.doll.entity.Doll">
+        SELECT
+        <include refid="Field"/>
+        FROM
+        <include refid="tableName"/>
+        WHERE
+        DOLL_STATE =#{DOLL_STATE}
+
+    </select>
+
+    <!--通过ID获取娃娃机信息-->
+    <select id="getDollByID" parameterType="String" resultType="com.cn.hx.wwj.facade.api.doll.entity.Doll">
+        SELECT
+        <include refid="Field"/>
+        FROM
+        <include refid="tableName"/>
+        WHERE
+        DOLL_ID =#{DOLL_ID}
+
+    </select>
+
+    <!--获取娃娃机在线信息-->
+    <select id="getAllDoll" parameterType="String" resultType="com.cn.hx.wwj.facade.api.doll.entity.Doll">
+        SELECT
+        <include refid="Field"/>
+        FROM
+        <include refid="tableName"/>
+    </select>
+    <!--通过SN号注册娃娃机-->
+    <insert id="regDollBySN" parameterType="String">
+        insert into
+        <include refid="tableName"/>
+        (
+        DOLL_ID,
+        DOLL_SN
+        ) values (
+        #{DOLL_ID},
+        #{DOLL_SN}
+        )
+
+    </insert>
+    <!--通过doll_id查询娃娃机-->
+    <select id="getDollBySessionOnLine" parameterType="String" resultType="Doll">
+        SELECT
+        d.DOLL_SN,
+        d.DOLL_NAME,
+        d.DOLL_ID,
+        d.DOLL_GOLD,
+        d.DOLL_URL
+        FROM
+        <include refid="tableName"/>
+        d
+        INNER JOIN
+        <include refid="gatewayTableName"/>
+        g
+        ON
+        d.Doll_ID = g.ROOM_ID
+    </select>
+
+
+</mapper>

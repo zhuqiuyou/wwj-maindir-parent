@@ -1,38 +1,33 @@
-package com.cn.hx.wwj.service.api.module.appuser.service.impl;
+package com.cn.hx.wwj.service.api.facade.system.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Configuration;
 
 import com.cn.hx.wwj.common.page.core.Page;
 import com.cn.hx.wwj.common.page.core.PageData;
 import com.cn.hx.wwj.facade.api.appuser.entity.AppUser;
-import com.cn.hx.wwj.mybatis.core.dao.BaseMapper;
-import com.cn.hx.wwj.mybatis.core.service.impl.BaseServiceImpl;
-import com.cn.hx.wwj.service.api.module.appuser.mapper.AppUserMapper;
+import com.cn.hx.wwj.facade.api.appuser.service.AppUserFacade;
 import com.cn.hx.wwj.service.api.module.appuser.service.AppUserService;
 
-
-@Service("appUserService")
-public class AppUserServiceImpl extends BaseServiceImpl<AppUser> implements AppUserService{
-
+@Configuration  
+@com.alibaba.dubbo.config.annotation.Service(interfaceName="appUserFacade")
+public class AppUserFacadeImpl implements AppUserFacade {
+	
 	@Autowired
-	private AppUserMapper appUserMapper;
-
-	@Override
-	protected BaseMapper<AppUser> getDao() {
-		return appUserMapper;
-	}
+	@Qualifier("appUserService")
+	private AppUserService appUserService;
+	
 	
 	/**列出某角色下的所有会员
 	 * @param pd
 	 * @return
 	 * @throws Exception
 	 */
-	@SuppressWarnings("unchecked")
-	public List<PageData> listAllAppuserByRorlid(PageData pd) throws Exception {
-		return appUserMapper.listAllAppuserByRorlid(pd);
+	public List<PageData> listAllAppuserByRorlid(PageData pd) throws Exception{
+		return appUserService.listAllAppuserByRorlid(pd);
 	}
 	
 	/**会员列表
@@ -40,9 +35,8 @@ public class AppUserServiceImpl extends BaseServiceImpl<AppUser> implements AppU
 	 * @return
 	 * @throws Exception
 	 */
-	@SuppressWarnings("unchecked")
 	public List<PageData> listPdPageUser(Page page)throws Exception{
-		return appUserMapper.userlistPage(page);
+		return appUserService.listPdPageUser(page);
 	}
 	
 	/**通过用户名获取数据
@@ -51,7 +45,7 @@ public class AppUserServiceImpl extends BaseServiceImpl<AppUser> implements AppU
 	 * @throws Exception
 	 */
 	public PageData findByUsername(PageData pd)throws Exception{
-		return appUserMapper.findByUsername(pd);
+		return appUserService.findByUsername(pd);
 	}
 	
 	/**通过邮箱获取数据
@@ -60,7 +54,7 @@ public class AppUserServiceImpl extends BaseServiceImpl<AppUser> implements AppU
 	 * @throws Exception
 	 */
 	public PageData findByEmail(PageData pd)throws Exception{
-		return appUserMapper.findByEmail(pd);
+		return appUserService.findByEmail(pd);
 	}
 	
 	/**通过编号获取数据
@@ -69,7 +63,7 @@ public class AppUserServiceImpl extends BaseServiceImpl<AppUser> implements AppU
 	 * @throws Exception
 	 */
 	public PageData findByNumber(PageData pd)throws Exception{
-		return appUserMapper.findByNumber(pd);
+		return appUserService.findByNumber(pd);
 	}
 	
 	/**保存用户
@@ -77,7 +71,7 @@ public class AppUserServiceImpl extends BaseServiceImpl<AppUser> implements AppU
 	 * @throws Exception
 	 */
 	public void save(PageData pd)throws Exception{
-		appUserMapper.save(pd);
+		appUserService.save(pd);
 	}
 	
 	/**删除用户
@@ -85,7 +79,7 @@ public class AppUserServiceImpl extends BaseServiceImpl<AppUser> implements AppU
 	 * @throws Exception
 	 */
 	public void delete(PageData pd)throws Exception{
-		appUserMapper.delete(pd);
+		appUserService.delete(pd);
 	}
 	
 	/**修改用户
@@ -93,7 +87,7 @@ public class AppUserServiceImpl extends BaseServiceImpl<AppUser> implements AppU
 	 * @throws Exception
 	 */
 	public void edit(PageData pd)throws Exception{
-		appUserMapper.edit(pd);
+		appUserService.edit(pd);
 	}
 	
 	/**通过id获取数据
@@ -102,7 +96,7 @@ public class AppUserServiceImpl extends BaseServiceImpl<AppUser> implements AppU
 	 * @throws Exception
 	 */
 	public PageData findByUiId(PageData pd)throws Exception{
-		return appUserMapper.findByUiId(pd);
+		return appUserService.findByUiId(pd);
 	}
 	
 	/**全部会员
@@ -110,9 +104,8 @@ public class AppUserServiceImpl extends BaseServiceImpl<AppUser> implements AppU
 	 * @return
 	 * @throws Exception
 	 */
-	@SuppressWarnings("unchecked")
 	public List<PageData> listAllUser(PageData pd)throws Exception{
-		return appUserMapper.listAllUser(pd);
+		return appUserService.listAllUser(pd);
 	}
 	
 	/**批量删除用户
@@ -120,7 +113,7 @@ public class AppUserServiceImpl extends BaseServiceImpl<AppUser> implements AppU
 	 * @throws Exception
 	 */
 	public void deleteAll(String[] USER_IDS)throws Exception{
-		appUserMapper.deleteAll(USER_IDS);
+		appUserService.deleteAll(USER_IDS);
 	}
 	
 	/**获取总数
@@ -128,18 +121,17 @@ public class AppUserServiceImpl extends BaseServiceImpl<AppUser> implements AppU
 	 * @throws Exception
 	 */
 	public PageData getAppUserCount(String value)throws Exception{
-		return appUserMapper.getAppUserCount(value);
+		return appUserService.getAppUserCount(value);
 	}
 
 	/**
-	 * 注册用户
+	 * 通过手机号码注册用户信息
 	 * @param phone
 	 * @return
 	 * @throws Exception
 	 */
-
-	public int reg(AppUser appUser) throws Exception {
-		return appUserMapper.reg(appUser);
+	public int reg(AppUser appUser)throws Exception{
+		return appUserService.reg(appUser);
 	}
 
 	/**
@@ -148,31 +140,28 @@ public class AppUserServiceImpl extends BaseServiceImpl<AppUser> implements AppU
 	 * @return
 	 * @throws Exception
 	 */
-
-	public AppUser getUserByPhone(String phone) throws Exception {
-		return appUserMapper.getUserByPhone(phone);
+	public AppUser getUserByPhone(String phone)throws Exception{
+		return appUserService.getUserByPhone(phone);
 	}
 
 	/**
-	 * 通过ID查询用户信息
+	 * 通过ID获取用户信息
 	 * @param id
 	 * @return
 	 * @throws Exception
 	 */
-
-	public AppUser getUserByID(String id) throws Exception {
-		return appUserMapper.getUserByID(id);
+	public AppUser getUserByID(String id)throws Exception{
+		return appUserService.getUserByID(id);
 	}
 
 	/**
-	 * 修改用户头像
-	 * @param id
+	 * 更改头像
+	 * @param appUser
 	 * @return
 	 * @throws Exception
 	 */
-	@Override
-	public int updateAppUserImage(AppUser appUser) throws Exception {
-		return appUserMapper.updateAppUserImage(appUser);
+	public int  updateAppUserImage(AppUser appUser)throws Exception{
+		return appUserService.updateAppUserImage(appUser);
 	}
+
 }
-

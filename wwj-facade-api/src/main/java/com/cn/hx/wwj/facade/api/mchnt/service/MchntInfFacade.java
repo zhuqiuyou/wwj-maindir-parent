@@ -3,6 +3,7 @@ import java.util.List;
 
 import com.cn.hx.wwj.common.page.core.Page;
 import com.cn.hx.wwj.common.page.core.PageData;
+import com.cn.hx.wwj.facade.api.mchnt.entity.MchntInf;
 
 /** 
  * 说明： 娃娃机处理类接口
@@ -53,5 +54,13 @@ public interface MchntInfFacade{
 	 * @throws Exception
 	 */
 	public void deleteAll(String[] ArrayDATA_IDS)throws Exception;
+	
+	/**
+	 * 根据App标识查找所属商户
+	 * @param appNo
+	 * @return
+	 * @throws Exception
+	 */
+	public MchntInf getMchntByAppNo(String appNo) throws Exception;
 
 }
